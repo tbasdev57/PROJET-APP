@@ -252,7 +252,7 @@ function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#home" className="text-lg font-bold tracking-tight text-white">
-          BASBUNAR<span className="text-cyan-400">.</span>
+         Tayyib BASBUNAR<span className="text-cyan-400">.</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">
@@ -402,7 +402,7 @@ function About() {
 
           <div className="mt-12 grid grid-cols-3 gap-6">
             {[
-              { value: '5+', label: "Années d'expérience" },
+              { value: '1,5+', label: "Années d'expérience" },
               { value: '30+', label: 'Projets réalisés' },
               { value: '15+', label: 'Clients satisfaits' },
             ].map((stat) => (
