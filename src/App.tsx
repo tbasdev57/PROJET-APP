@@ -34,9 +34,9 @@ const projects: Project[] = [
     title: 'E-Commerce Platform',
     category: 'Application Web',
     description:
-      'Plateforme e-commerce complète avec panier, paiement Stripe et gestion de produits en temps réel.',
+      'Boutique en ligne avec panier, paiement Stripe et back-office pour gérer le catalogue.',
     longDescription:
-      "Une plateforme e-commerce moderne construite avec React et Supabase. L'application inclut une gestion de produits en temps réel, un panier persistant, un tunnel de paiement Stripe sécurisé et un back-office d'administration. L'interface est entièrement responsive et optimisée pour les performances.",
+      "J'ai monté cette boutique de A à Z côté front. Le catalogue et les stocks sont gérés via Supabase, le paiement passe par Stripe, et j'ai construit un petit back-office pour que l'équipe puisse ajouter ou modifier des produits sans toucher au code. Le panier persiste entre les visites, et toute l'interface est responsive.",
     tags: ['React', 'TypeScript', 'Supabase', 'Stripe', 'Tailwind'],
     image:
       'https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -46,15 +46,15 @@ const projects: Project[] = [
       "Panel d'administration pour la gestion des produits",
       'Recherche et filtrage avancés des produits',
     ],
-    link: 'https://www.linkedin.com/in/tayyib-basbunar-',
+    link: 'https://github.com/tbasdev57',
   },
   {
     title: 'Tableau de Bord SaaS',
     category: 'Dashboard',
     description:
-      'Dashboard analytique avec graphiques interactifs, gestion utilisateurs et authentification sécurisée.',
+      'Tableau de bord SaaS avec graphiques, gestion des utilisateurs et rôles.',
     longDescription:
-      "Un tableau de bord SaaS complet avec authentification, gestion de rôles et visualisation de données en temps réel. Construit avec React, TypeScript et Recharts, il offre une expérience utilisateur fluide avec des graphiques interactifs, des métriques personnalisables et un système de notifications.",
+      "Tableau de bord que j'ai développé pour une équipe produit. Chaque utilisateur a un rôle différent, et les données affichées s'adaptent en conséquence. J'ai utilisé Recharts pour les graphiques, Supabase pour l'auth et les données, et j'ai ajouté un système de notifications pour les alertes importantes. Les rapports peuvent être exportés en PDF ou CSV.",
     tags: ['React', 'TypeScript', 'Recharts', 'Supabase', 'Tailwind'],
     image:
       'https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -64,15 +64,15 @@ const projects: Project[] = [
       'Métriques en temps réel via WebSocket',
       'Export de rapports en PDF et CSV',
     ],
-    link: 'https://www.linkedin.com/in/tayyib-basbunar-',
+    link: 'https://github.com/tbasdev57',
   },
   {
     title: 'Application Mobile Fitness',
     category: 'Application Mobile',
     description:
-      "Suivi d'entraînement personnalisé avec programmes adaptatifs et statistiques de progression.",
+      "Application mobile de suivi d'entraînement avec programmes personnalisés et stats de progression.",
     longDescription:
-      "Une application mobile de fitness développée avec React Native et Expo. Elle propose des programmes d'entraînement adaptatifs, un suivi détaillé des performances, des statistiques visuelles de progression et des notifications de rappel. Le design est pensé pour une expérience mobile optimale.",
+      "J'ai développé cette appli en React Native avec Expo. L'idée était simple : aider l'utilisateur à suivre ses séances et voir sa progression dans le temps. Les programmes s'adaptent au niveau de chacun, les rappels se déclenchent automatiquement, et les données se synchronisent dans le cloud pour ne rien perdre entre les appareils.",
     tags: ['React Native', 'TypeScript', 'Expo', 'Node.js'],
     image:
       'https://images.pexels.com/photos/12932334/pexels-photo-12932334.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -82,15 +82,15 @@ const projects: Project[] = [
       'Notifications et rappels personnalisés',
       'Synchronisation des données dans le cloud',
     ],
-    link: 'https://www.linkedin.com/in/tayyib-basbunar-',
+    link: 'https://github.com/tbasdev57',
   },
   {
     title: 'Site Vitrine Restaurant',
     category: 'Site Web',
     description:
-      'Site web élégant avec menu interactif, système de réservation et galerie photos.',
+      'Site vitrine pour restaurant : menu interactif, réservations en ligne et galerie.',
     longDescription:
-      "Un site vitrine moderne pour un restaurant haut de gamme, développé avec Next.js et Tailwind CSS. Il intègre un menu interactif, un système de réservation en ligne, une galerie photos élégante et une optimisation SEO complète. Le design met en valeur l'identité visuelle du restaurant.",
+      "Site que j'ai construit en Next.js pour un restaurant qui voulait une présence en ligne à la hauteur de sa carte. Le menu est filtrable par catégorie, les réservations se font directement sur le site, et j'ai soigné le SEO pour que le restaurant ressorte bien dans les recherches locales. La galerie photos met en valeur les plats.",
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'Vercel'],
     image:
       'https://images.pexels.com/photos/6327536/pexels-photo-6327536.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -100,15 +100,15 @@ const projects: Project[] = [
       'Galerie photos avec lightbox',
       'Optimisation SEO et performances',
     ],
-    link: 'https://www.linkedin.com/in/tayyib-basbunar-',
+    link: 'https://github.com/tbasdev57',
   },
   {
     title: 'Plateforme de Blog',
     category: 'Application Web',
     description:
-      'CMS sur mesure avec éditeur Markdown, gestion de catégories et commentaires en temps réel.',
+      'Plateforme de blog avec éditeur Markdown, catégories et commentaires en direct.',
     longDescription:
-      "Une plateforme de blog complète avec un CMS sur mesure, un éditeur Markdown enrichi, un système de catégories et de tags, ainsi que des commentaires en temps réel. Développée avec React et Supabase, elle offre une expérience d'écriture et de lecture fluide et moderne.",
+      "J'ai construit ce blog de zéro, sans WordPress ni CMS existant. L'éditeur supporte le Markdown avec aperçu en direct, les articles sont classés par catégories et tags, et les commentaires s'affichent en temps réel grâce à Supabase. J'ai aussi ajouté une recherche full-text pour retrouver facilement un article.",
     tags: ['React', 'TypeScript', 'Supabase', 'Markdown'],
     image:
       'https://images.pexels.com/photos/265667/pexels-photo-265667.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -118,15 +118,15 @@ const projects: Project[] = [
       'Commentaires en temps réel',
       'Recherche full-text performante',
     ],
-    link: 'https://www.linkedin.com/in/tayyib-basbunar-',
+    link: 'https://github.com/tbasdev57',
   },
   {
     title: 'Outil de Gestion de Tâches',
     category: 'Productivité',
     description:
-      'Application de productivité avec drag-and-drop, étiquettes et collaboration en équipe.',
+      'Outil de gestion de tâches en Kanban, avec étiquettes, deadlines et collaboration.',
     longDescription:
-      "Un outil de gestion de tâches moderne avec fonctionnalités de drag-and-drop, étiquettes colorées, deadlines et collaboration en équipe. L'application supporte les tableaux Kanban, les vues liste et calendrier, ainsi que les notifications en temps réel pour le travail en équipe.",
+      "Un Kanban que j'ai développé pour le travail en équipe. On peut déplacer les tâches en drag-and-drop, ajouter des étiquettes et des deadlines, et basculer entre vue liste, calendrier et timeline. Les notifications arrivent en temps réel quand quelqu'un modifie une tâche, ce qui évite les points de blocage.",
     tags: ['React', 'TypeScript', 'Tailwind', 'DnD'],
     image:
       'https://images.pexels.com/photos/38888681/pexels-photo-38888681.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -136,7 +136,7 @@ const projects: Project[] = [
       'Collaboration en équipe en temps réel',
       'Étiquettes, deadlines et priorités',
     ],
-    link: 'https://www.linkedin.com/in/tayyib-basbunar-',
+    link: 'https://github.com/tbasdev57',
   },
 ];
 
@@ -252,7 +252,7 @@ function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#home" className="text-lg font-bold tracking-tight text-white">
-          Tayyib<span className="text-cyan-400">.</span>
+          BASBUNAR<span className="text-cyan-400">.</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">
@@ -312,16 +312,8 @@ function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900"
     >
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[120px] animate-pulse-slow-delay" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[140px]" />
       </div>
 
       <div className="relative container mx-auto px-6 text-center">
@@ -330,7 +322,7 @@ function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
           </span>
-          Disponible pour de nouvelles opportunités
+          Disponible — ouvert aux opportunités en CDI et freelance
         </div>
 
         <h1 className="reveal text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[1.05]">
@@ -341,8 +333,7 @@ function Hero() {
         </h1>
 
         <p className="reveal mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-          Développeur Front End spécialisé en TypeScript, React et Next.js.
-          Je crée des interfaces web modernes, performantes et accessibles.
+          Développeur Front End basé à Paris. J'ai passé les dernières années à construire des interfaces web en React et Next.js, avec une attention particulière portée aux détails, aux performances et à l'expérience utilisateur.
         </p>
 
         <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -398,21 +389,14 @@ function About() {
             À propos
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
-            Je conçois des interfaces web modernes avec TypeScript, React et Next.js.
+            J'aime résoudre des problèmes concrets avec du code propre et bien pensé.
           </h2>
           <div className="space-y-6 text-lg text-slate-400 leading-relaxed">
             <p>
-              En tant que développeur Front End spécialisé en TypeScript, React et
-              Next.js, je transforme des maquettes complexes en expériences
-              numériques fluides, rapides et accessibles. Mon focus est sur la
-              qualité du code, la performance et le souci du détail visuel.
+              J'ai commencé à coder par curiosité, et c'est resté. Aujourd'hui je travaille principalement avec React et Next.js, en TypeScript, pour construire des interfaces qui chargent vite et qui sont agréables à utiliser. Je tiens à écrire du code lisible, testé, et facile à reprendre pour les personnes qui passent derrière.
             </p>
             <p>
-              J'écris du code fortement typé avec TypeScript, construis des
-              composants réutilisables avec React, et profite du rendu côté
-              serveur de Next.js pour des applications optimisées en SEO et en
-              vitesse de chargement. Curieux de nature, je me tiens constamment
-              à jour sur les meilleures pratiques du secteur.
+              Avant d'écrire la moindre ligne, je prends le temps de comprendre le besoin. Je collabore avec les designers et les équipes produit pour trouver le bon compromis entre ce qui est souhaitable et ce qui est réalisable dans les délais. Et je reste à jour sur les évolutions de l'écosystème front-end, pas par obligation mais par vrai intérêt.
             </p>
           </div>
 
@@ -452,7 +436,7 @@ function Skills() {
             Ma stack technique
           </h2>
           <p className="mt-4 text-slate-400 text-lg">
-            Spécialisé en développement Front End avec TypeScript, React et Next.js.
+            Les technologies que j'utilise au quotidien pour livrer des produits.
           </p>
         </div>
 
@@ -616,8 +600,7 @@ function Projects() {
             Réalisations sélectionnées
           </h2>
           <p className="mt-4 text-slate-400 text-lg">
-            Cliquez sur un projet pour voir les détails, les fonctionnalités et
-            les technologies utilisées.
+            Quelques projets sur lesquels j'ai travaillé. Cliquez pour en savoir plus.
           </p>
         </div>
 
@@ -694,8 +677,7 @@ function Contact() {
             Travaillons ensemble
           </h2>
           <p className="text-lg text-slate-400 mb-12">
-            Vous avez un projet en tête ou une opportunité à discuter ?
-            N'hésitez pas à me contacter, je vous réponds rapidement.
+            Une opportunité à discuter, un projet à explorer, ou juste envie d'échanger ? Écrivez-moi, je réponds généralement dans la journée.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">

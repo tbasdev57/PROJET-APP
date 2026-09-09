@@ -1,3 +1,23 @@
-# PROJET-APP
+# Portfolio — Développeur Front End
 
-[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-gtck63vo)
+Portfolio personnel de Tayyib BASBUNAR, développeur Front End spécialisé en TypeScript, React et Next.js.
+
+## Stack
+
+- React 18 + TypeScript
+- Vite
+- Tailwind CSS
+- Lucide Icons
+
+## Démarrage
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
