@@ -563,15 +563,7 @@ function ProjectModal({
             </div>
           </div>
 
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-slate-900 bg-cyan-400 rounded-xl hover:bg-cyan-300 transition-all duration-200 hover:scale-105"
-          >
-            Voir le projet en direct
-            <ExternalLink className="w-4 h-4" />
-          </a>
+
         </div>
       </div>
     </div>
