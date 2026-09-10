@@ -11,6 +11,7 @@ import {
   Database,
   ArrowUpRight,
   ExternalLink,
+  Info,
   XCircle,
   Check,
   Sparkles,
@@ -479,6 +480,7 @@ function ProjectModal({
   project: Project;
   onClose: () => void;
 }) {
+  const [showLive, setShowLive] = useState(false);
   useBodyScrollLock(true);
 
   useEffect(() => {
@@ -496,75 +498,106 @@ function ProjectModal({
     >
       <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm animate-fade-in" />
       <div
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-slate-800 border border-white/10 rounded-3xl shadow-2xl animate-modal-in"
+        className={`relative w-full ${showLive ? 'max-w-5xl' : 'max-w-2xl'} max-h-[90vh] overflow-hidden bg-slate-800 border border-white/10 rounded-3xl shadow-2xl animate-modal-in flex flex-col`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 text-slate-400 hover:text-white bg-slate-900/50 hover:bg-slate-900 rounded-full transition-all duration-200"
-          aria-label="Fermer"
-        >
-          <XCircle className="w-6 h-6" />
-        </button>
-
-        <div className="relative h-56 md:h-64 overflow-hidden rounded-t-3xl">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-slate-800/30 to-transparent" />
-          <div className="absolute bottom-4 left-6">
-            <span className="inline-block px-3 py-1 text-xs font-medium text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-2">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-900/80">
+          <div className="flex items-center gap-3">
+            <span className="inline-block px-3 py-1 text-xs font-medium text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 rounded-full">
               {project.category}
             </span>
+            <h3 className="text-lg font-bold text-white">{project.title}</h3>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setShowLive((s) => !s)}
+              className={`inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-xl transition-all duration-200 ${showLive ? 'text-slate-900 bg-cyan-400' : 'text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 hover:bg-cyan-500/20'}`}
+            >
+              {showLive ? (
+                <>
+                  <Info className="w-4 h-4" />
+                  Détails
+                </>
+              ) : (
+                <>
+                  <ExternalLink className="w-4 h-4" />
+                  Voir en direct
+                </>
+              )}
+            </button>
+            <button
+              onClick={onClose}
+              className="p-2 text-slate-400 hover:text-white bg-slate-900/50 hover:bg-slate-900 rounded-full transition-all duration-200"
+              aria-label="Fermer"
+            >
+              <XCircle className="w-6 h-6" />
+            </button>
           </div>
         </div>
 
-        <div className="p-6 md:p-8">
-          <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-          <p className="text-slate-400 leading-relaxed mb-6">
-            {project.longDescription}
-          </p>
-
-          <div className="mb-6">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-cyan-400" />
-              Fonctionnalités clés
-            </h4>
-            <ul className="space-y-3">
-              {project.features.map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-start gap-3 text-sm text-slate-300"
-                >
-                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 flex items-center justify-center bg-cyan-500/10 text-cyan-400 rounded-full">
-                    <Check className="w-3.5 h-3.5" />
-                  </span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
+        {showLive ? (
+          <div className="flex-1 min-h-[60vh] md:min-h-[70vh] bg-slate-950">
+            <iframe
+              src={project.link}
+              title={project.title}
+              className="w-full h-full min-h-[60vh] md:min-h-[70vh] border-0"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+            />
           </div>
+        ) : (
+          <div className="overflow-y-auto">
+            <div className="relative h-56 md:h-64 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-800 via-slate-800/30 to-transparent" />
+            </div>
 
-          <div className="mb-6">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">
-              Technologies
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1.5 text-xs font-medium text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 rounded-lg"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="p-6 md:p-8">
+              <p className="text-slate-400 leading-relaxed mb-6">
+                {project.longDescription}
+              </p>
+
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-cyan-400" />
+                  Fonctionnalités clés
+                </h4>
+                <ul className="space-y-3">
+                  {project.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-sm text-slate-300"
+                    >
+                      <span className="mt-0.5 flex-shrink-0 w-5 h-5 flex items-center justify-center bg-cyan-500/10 text-cyan-400 rounded-full">
+                        <Check className="w-3.5 h-3.5" />
+                      </span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">
+                  Technologies
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1.5 text-xs font-medium text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 rounded-lg"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-
-
-        </div>
+        )}
       </div>
     </div>
   );
