@@ -13,8 +13,6 @@ export type Project = {
   longDescription: string;
   tags: string[];
   image: string;
-  repoUrl: string;
-  liveUrl?: string;
 };
 
 export type Skill = {
@@ -29,22 +27,20 @@ export const projects: Project[] = [
     category: 'Application Web',
     description: 'Boutique en ligne avec gestion de panier, développée en TypeScript.',
     longDescription:
-      "Projet de boutique en ligne développé en TypeScript, avec une gestion du panier d'achat. Le code source complet est disponible sur GitHub.",
+      "Projet de boutique en ligne développé en TypeScript, avec une gestion du panier d'achat. Démonstration interactive à explorer dans le portfolio.",
     tags: ['TypeScript'],
     image:
       'https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=650&w=940',
-    repoUrl: 'https://github.com/tbasdev57/ts-shopping-cart',
   },
   {
     title: 'Tableau de Bord SaaS',
     category: 'Dashboard',
     description: "Application de suivi de finances personnelles, développée en TypeScript.",
     longDescription:
-      "Tableau de bord développé en TypeScript pour suivre ses finances personnelles. Le code source complet est disponible sur GitHub.",
+      "Tableau de bord développé en TypeScript pour suivre ses finances personnelles. Démonstration interactive à explorer dans le portfolio.",
     tags: ['TypeScript'],
     image:
       'https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    repoUrl: 'https://github.com/tbasdev57/ts-personal-finance',
   },
   {
     title: 'Application Mobile Fitness',
@@ -55,40 +51,36 @@ export const projects: Project[] = [
     tags: ['React Native', 'TypeScript'],
     image:
       'https://images.pexels.com/photos/12932334/pexels-photo-12932334.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    repoUrl: 'https://github.com/tbasdev57',
   },
   {
     title: 'Site Vitrine Restaurant',
     category: 'Site Web',
     description: 'Site vitrine pour restaurant, réalisé avec Next.js et Tailwind CSS.',
     longDescription:
-      "Site vitrine réalisé avec Next.js et Tailwind CSS pour présenter un restaurant en ligne. Le code source complet est disponible sur GitHub.",
+      "Site vitrine réalisé avec Next.js et Tailwind CSS pour présenter un restaurant en ligne. Démonstration interactive à explorer dans le portfolio.",
     tags: ['Next.js', 'TypeScript', 'Tailwind'],
     image:
       'https://images.pexels.com/photos/6327536/pexels-photo-6327536.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    repoUrl: 'https://github.com/tbasdev57/burger-restaurant',
   },
   {
     title: 'Plateforme de Blog',
     category: 'Application Web',
     description: 'Plateforme de blog développée en React et TypeScript.',
     longDescription:
-      "Plateforme de blog développée en React et TypeScript. Le code source complet est disponible sur GitHub.",
+      "Plateforme de blog développée en React et TypeScript. Démonstration interactive à explorer dans le portfolio.",
     tags: ['React', 'TypeScript'],
     image:
       'https://images.pexels.com/photos/265667/pexels-photo-265667.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    repoUrl: 'https://github.com/tbasdev57/Blog',
   },
   {
     title: 'Outil de Gestion de Tâches',
     category: 'Productivité',
     description: 'Outil de gestion de tâches développé en React avec Tailwind CSS.',
     longDescription:
-      "Outil de gestion de tâches développé en React et stylisé avec Tailwind CSS. Le code source complet est disponible sur GitHub.",
+      "Outil de gestion de tâches développé en React et stylisé avec Tailwind CSS. Démonstration interactive à explorer dans le portfolio.",
     tags: ['React', 'Tailwind'],
     image:
       'https://images.pexels.com/photos/38888681/pexels-photo-38888681.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-    repoUrl: 'https://github.com/tbasdev57/Task_Flow',
   },
 ];
 
