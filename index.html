@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       (function () {
+        // Supprimer les paramètres de suivi de l'URL affichée, sans effacer l'ancre.
+        try {
+          var url = new URL(window.location.href);
+          var trackingKeys = Array.from(url.searchParams.keys()).filter(function (key) {
+            return key.indexOf('utm_') === 0;
+          });
+          if (trackingKeys.length) {
+            trackingKeys.forEach(function (key) { url.searchParams.delete(key); });
+            window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+          }
+        } catch (e) {}
+      })();
+      (function () {
         try {
           var stored = localStorage.getItem('theme');
           var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -12,16 +25,16 @@
         } catch (e) {}
       })();
     </script>
-    <title>Tayyib BASBUNAR — Développeur Front-End Junior | React.js, Next.js, React Native</title>
-    <meta name="description" content="Portfolio de Tayyib BASBUNAR, Développeur Front-End Junior spécialisé en React.js, Next.js et React Native. Découvrez mes projets et contactez-moi." />
+    <title>Tayyib BASBUNAR — Développeur Front-End | React.js, Next.js, React Native</title>
+    <meta name="description" content="Portfolio de Tayyib BASBUNAR, Développeur Front-End spécialisé en React.js, Next.js et React Native. Découvrez mes projets et contactez-moi." />
     <meta name="author" content="Tayyib BASBUNAR" />
     <meta name="theme-color" content="#f8fafc" />
     <link rel="canonical" href="https://tayyib-portfolio.vercel.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Tayyib BASBUNAR" />
-    <meta property="og:title" content="Tayyib BASBUNAR — Développeur Front-End Junior" />
-    <meta property="og:description" content="Développeur Front-End Junior spécialisé en React.js, Next.js et React Native. Découvrez mes projets." />
+    <meta property="og:title" content="Tayyib BASBUNAR — Développeur Front-End" />
+    <meta property="og:description" content="Développeur Front-End spécialisé en React.js, Next.js et React Native. Découvrez mes projets." />
     <meta property="og:url" content="https://tayyib-portfolio.vercel.app/" />
     <meta name="twitter:card" content="summary" />
     <meta property="og:image" content="https://bolt.new/static/og_default.png">
