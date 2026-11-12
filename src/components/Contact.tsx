@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { Linkedin, Mail, MapPin, Phone, Send, X } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { EMAIL, LINKEDIN_URL } from '../data/portfolio';
-import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 
 const contactItems = [
   { icon: Mail, label: 'Email', value: EMAIL, href: `mailto:${EMAIL}` },
@@ -15,39 +13,8 @@ const contactItems = [
 type SubmissionState = 'idle' | 'sending' | 'success' | 'error';
 
 export function Contact() {
-  const [open, setOpen] = useState(false);
-  const closeButton = useRef<HTMLButtonElement>(null);
-  const openButton = useRef<HTMLButtonElement>(null);
-  useBodyScrollLock(open);
   const [status, setStatus] = useState<SubmissionState>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-
-  useEffect(() => {
-    const onContactClick = (event: MouseEvent) => {
-      const target = event.target;
-      if (!(target instanceof Element)) return;
-      const link = target.closest('a[href="#contact-form"]');
-      if (link) {
-        event.preventDefault();
-        setOpen(true);
-      }
-    };
-    document.addEventListener('click', onContactClick);
-    return () => document.removeEventListener('click', onContactClick);
-  }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false);
-    };
-    window.addEventListener('keydown', onKeyDown);
-    closeButton.current?.focus();
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-      openButton.current?.focus();
-    };
-  }, [open]);
 
   async function sendMessage(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -104,24 +71,7 @@ export function Contact() {
             ))}
           </div>
 
-          <button ref={openButton} type="button" onClick={() => setOpen(true)}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:scale-105 hover:shadow-lg hover:shadow-accent/25"
-          ><Mail className="h-4 w-4" aria-hidden="true" /> Envoyer un message</button>
-
-          {open && createPortal(
-            <div className="fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-6"
-              onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
-              <div className="absolute inset-0 bg-surface-alt/85 backdrop-blur-sm" aria-hidden="true" />
-              <div id="contact-form" role="dialog" aria-modal="true" aria-labelledby="contact-dialog-title"
-                className="relative z-10 flex max-h-[94dvh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-line/15 bg-surface-card text-left shadow-2xl">
-                <div className="flex shrink-0 items-center justify-between border-b border-line/10 px-5 py-4 sm:px-8">
-                  <h3 id="contact-dialog-title" className="text-lg font-bold text-ink">Contacter Tayyib</h3>
-                  <button ref={closeButton} type="button" onClick={() => setOpen(false)}
-                    className="rounded-lg p-2 text-ink-soft transition-colors hover:bg-line/10 hover:text-ink" aria-label="Fermer le formulaire">
-                    <X className="h-5 w-5" aria-hidden="true" />
-                  </button>
-                </div>
-                <div className="overflow-y-auto overscroll-contain p-5 sm:p-8">
+          <div id="contact-form" className="mx-auto max-w-2xl scroll-mt-28 rounded-2xl border border-line/10 bg-surface-card/70 p-5 text-left shadow-xl shadow-accent/5 sm:p-8">
             <div className="mb-6">
               <h3 className="text-xl font-bold text-ink sm:text-2xl">Envoyer un message</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">Décrivez votre besoin ou votre opportunité. Je pourrai vous répondre directement par email.</p>
@@ -162,11 +112,7 @@ export function Contact() {
               </p>}
               <p className="text-xs leading-relaxed text-ink-faint">Les informations de ce formulaire sont transmises au service tiers FormSubmit pour l’envoi à mon adresse email. N’envoyez pas d’informations sensibles.</p>
             </form>
-                </div>
-              </div>
-            </div>,
-            document.body
-          )}
+          </div>
         </div>
       </div>
     </section>
