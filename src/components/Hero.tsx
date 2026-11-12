@@ -35,7 +35,7 @@ export function Hero() {
         </h1>
 
         <p className="reveal mt-6 text-base font-semibold text-accent sm:text-lg md:text-xl">
-          Développeur Front-End Junior — React.js, Next.js, React Native
+          Développeur Front-End — React.js, Next.js, React Native
         </p>
 
         <p className="reveal mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
