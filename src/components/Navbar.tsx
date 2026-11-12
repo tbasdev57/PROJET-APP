@@ -64,7 +64,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            href="#contact"
+            href="#contact-form"
             className="hidden items-center rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-on-accent transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-accent/25 md:inline-flex"
           >
             Me contacter
