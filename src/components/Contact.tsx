@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { Linkedin, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { EMAIL, LINKEDIN_URL } from '../data/portfolio';
@@ -13,8 +13,24 @@ const contactItems = [
 type SubmissionState = 'idle' | 'sending' | 'success' | 'error';
 
 export function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<SubmissionState>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    const clearFields = () => {
+      formRef.current?.reset();
+      setStatus('idle');
+      setErrorMessage('');
+    };
+    clearFields();
+    window.addEventListener('pageshow', clearFields);
+    window.addEventListener('pagehide', clearFields);
+    return () => {
+      window.removeEventListener('pageshow', clearFields);
+      window.removeEventListener('pagehide', clearFields);
+    };
+  }, []);
 
   async function sendMessage(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -28,18 +44,21 @@ export function Contact() {
     try {
       const response = await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: data,
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(data.entries())),
       });
       const result: { success?: boolean | string; message?: string } = await response.json();
-      if (!response.ok || result.success === false || result.success === 'false') {
-        throw new Error('Le service de messagerie n’a pas accepté la demande.');
+      if (!response.ok || (result.success !== true && result.success !== 'true')) {
+        if (/activat|confirm/i.test(result.message ?? '')) throw new Error('activation');
+        throw new Error('submission');
       }
-      setStatus('success');
       form.reset();
-    } catch {
+      setStatus('success');
+    } catch (error) {
       setStatus('error');
-      setErrorMessage('Impossible d’envoyer le message pour le moment. Vous pouvez me contacter directement par email.');
+      setErrorMessage(error instanceof Error && error.message === 'activation'
+        ? 'L’adresse de réception doit être activée. Vérifiez votre boîte Gmail et les spams pour confirmer FormSubmit.'
+        : 'L’envoi a échoué. Réessayez ou contactez-moi directement par email.');
     }
   }
 
@@ -76,7 +95,7 @@ export function Contact() {
               <h3 className="text-xl font-bold text-ink sm:text-2xl">Envoyer un message</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">Décrivez votre besoin ou votre opportunité. Je pourrai vous répondre directement par email.</p>
             </div>
-            <form onSubmit={sendMessage} className="space-y-5">
+            <form ref={formRef} onSubmit={sendMessage} autoComplete="off" className="space-y-5">
               <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
               <input type="hidden" name="_subject" value="Nouveau contact — Portfolio Tayyib Basbunar" />
               <input type="hidden" name="_template" value="table" />
@@ -84,20 +103,20 @@ export function Contact() {
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block">
                   <span className="mb-2 block text-sm font-medium text-ink">Nom *</span>
-                  <input className={inputStyle} type="text" name="name" autoComplete="name" maxLength={100} placeholder="Votre nom" required />
+                  <input className={inputStyle} type="text" name="name" autoComplete="off" maxLength={100} placeholder="Votre nom" required />
                 </label>
                 <label className="block">
                   <span className="mb-2 block text-sm font-medium text-ink">Adresse email *</span>
-                  <input className={inputStyle} type="email" name="email" autoComplete="email" maxLength={254} placeholder="vous@exemple.fr" required />
+                  <input className={inputStyle} type="email" name="email" autoComplete="off" maxLength={254} placeholder="vous@exemple.fr" required />
                 </label>
               </div>
               <label className="block">
                 <span className="mb-2 block text-sm font-medium text-ink">Sujet *</span>
-                <input className={inputStyle} type="text" name="subject" maxLength={150} placeholder="Votre demande" required />
+                <input className={inputStyle} type="text" name="subject" autoComplete="off" maxLength={150} placeholder="Votre demande" required />
               </label>
               <label className="block">
                 <span className="mb-2 block text-sm font-medium text-ink">Message *</span>
-                <textarea className={inputStyle + ' min-h-[160px] resize-y'} name="message" rows={6} minLength={10} maxLength={4000} placeholder="Bonjour, je vous contacte au sujet de…" required />
+                <textarea className={inputStyle + ' min-h-[160px] resize-y'} name="message" autoComplete="off" rows={6} minLength={10} maxLength={4000} placeholder="Bonjour, je vous contacte au sujet de…" required />
               </label>
               <button type="submit" disabled={status === 'sending'}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 py-3.5 text-sm font-semibold text-on-accent transition-all hover:opacity-90 disabled:cursor-wait disabled:opacity-60 sm:w-auto">
@@ -110,7 +129,6 @@ export function Contact() {
               {status === 'error' && <p role="alert" className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-ink">
                 {errorMessage} <a className="font-semibold text-accent underline" href={`mailto:${EMAIL}`}>Envoyer un email</a>
               </p>}
-              <p className="text-xs leading-relaxed text-ink-faint">Les informations de ce formulaire sont transmises au service tiers FormSubmit pour l’envoi à mon adresse email. N’envoyez pas d’informations sensibles.</p>
             </form>
           </div>
         </div>
