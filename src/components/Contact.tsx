@@ -13,7 +13,7 @@ export function Contact() {
     <section id="contact" className="relative overflow-hidden bg-surface py-20 md:py-28">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[150px]" aria-hidden="true" />
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <div className="reveal mx-auto max-w-3xl text-center">
+        <div className="reveal mx-auto max-w-5xl text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-accent">
             Contact
           </p>
@@ -35,7 +35,7 @@ export function Contact() {
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <span className="text-sm text-ink-faint">{label}</span>
-                <span className="mt-1 max-w-full break-words text-center text-xs font-semibold leading-6 text-ink sm:text-sm">{value}</span>
+                <span className="mt-1 max-w-full whitespace-nowrap text-center text-[11px] font-semibold leading-6 tracking-tight text-ink sm:text-xs 2xl:text-sm">{value}</span>
               </a>
             ))}
           </div>
