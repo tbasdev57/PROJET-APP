@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { FormEvent } from 'react';
 import { Linkedin, Mail, MapPin, Phone, Send, X } from 'lucide-react';
 import { EMAIL, LINKEDIN_URL } from '../data/portfolio';
@@ -107,7 +108,7 @@ export function Contact() {
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-sm font-semibold text-on-accent transition-all hover:scale-105 hover:shadow-lg hover:shadow-accent/25"
           ><Mail className="h-4 w-4" aria-hidden="true" /> Envoyer un message</button>
 
-          {open && (
+          {open && createPortal(
             <div className="fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-6"
               onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
               <div className="absolute inset-0 bg-surface-alt/85 backdrop-blur-sm" aria-hidden="true" />
@@ -163,7 +164,8 @@ export function Contact() {
             </form>
                 </div>
               </div>
-            </div>
+            </div>,
+            document.body
           )}
         </div>
       </div>
