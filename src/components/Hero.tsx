@@ -51,7 +51,7 @@ export function Hero() {
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
           <a
-            href="#contact"
+            href="#contact-form"
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-line/15 px-7 py-3.5 text-sm font-semibold text-ink transition-all duration-200 hover:border-accent/40 hover:bg-line/5 hover:text-accent"
           >
             Me contacter
