@@ -12,10 +12,10 @@ export function About() {
           </h2>
           <div className="space-y-6 text-base leading-relaxed text-ink-soft md:text-lg">
             <p>
-              J'ai commencé à coder par curiosité, et c'est resté. Aujourd'hui je travaille principalement avec React et Next.js, en TypeScript, pour construire des interfaces qui chargent vite et qui sont agréables à utiliser. Je tiens à écrire du code lisible, testé, et facile à reprendre pour les personnes qui passent derrière.
+              Passionné par le développement web, je travaille principalement avec React, Next.js et TypeScript pour créer des interfaces modernes, fluides et adaptées à tous les écrans.
             </p>
             <p>
-              Avant d'écrire la moindre ligne, je prends le temps de comprendre le besoin. Je collabore avec les designers et les équipes produit pour trouver le bon compromis entre ce qui est souhaitable et ce qui est réalisable dans les délais. Et je reste à jour sur les évolutions de l'écosystème front-end, pas par obligation mais par vrai intérêt.
+              J'aime développer des applications, résoudre des problèmes techniques et améliorer l'expérience utilisateur. Je suis curieux, motivé et toujours prêt à apprendre de nouvelles choses. Aujourd'hui, je souhaite mettre mes compétences en pratique au sein d'une équipe, participer à des projets concrets et continuer à évoluer en tant que développeur Front-End.
             </p>
           </div>
         </div>

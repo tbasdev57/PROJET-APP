@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className="border-t border-line/5 bg-surface-alt py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 text-center sm:px-6 md:flex-row lg:px-8">
-        <p className="text-sm text-ink-faint">Tayyib BASBUNAR — Développeur Front-End Junior</p>
+        <p className="text-sm text-ink-faint">Tayyib BASBUNAR — Développeur Front-End</p>
         <div className="flex items-center gap-2">
           {socialLinks.map(({ icon: Icon, href, label }) => (
             <a

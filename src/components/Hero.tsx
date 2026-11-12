@@ -35,11 +35,11 @@ export function Hero() {
         </h1>
 
         <p className="reveal mt-6 text-base font-semibold text-accent sm:text-lg md:text-xl">
-          Développeur Front-End Junior — React.js, Next.js, React Native
+          Développeur Front-End — React.js, Next.js, React Native
         </p>
 
         <p className="reveal mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-          Basé à Paris, je construis des interfaces web en React et Next.js, avec une attention particulière portée aux détails, aux performances et à l'expérience utilisateur.
+          Je crée des sites web modernes, rapides et faciles à utiliser avec React et Next.js.
         </p>
 
         <div className="reveal mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
